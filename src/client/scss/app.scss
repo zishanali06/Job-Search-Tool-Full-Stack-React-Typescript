@@ -1,5 +1,9 @@
 @import '../../../node_modules/bootstrap/scss/bootstrap.scss';
 
+* {
+    font-family: 'Sniglet', cursive;
+}
+
 .covalence-blue {
     color: #0091ea;
 }
@@ -8,4 +12,17 @@
     list-style-type: none;
     margin: none;
     padding: none;
+}
+
+.home {
+    max-width: 100%;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(233, 233, 240);
+}
+
+.logofont {
+    color: rgb(74,153,232);
 }

@@ -35,7 +35,7 @@ const clientConfig = {
     entry: './src/client/index.tsx',
     devtool: 'inline-source-map',
     module: {
-      rules: [
+    rules: [
         {
             test: /\.tsx?$/,
             loader: 'ts-loader',
@@ -51,8 +51,15 @@ const clientConfig = {
                 'css-loader',
                 'sass-loader',
             ]
+        },
+        {
+            test: /\.css$/,
+            use: [
+                'style-loader',
+                'css-loader'
+            ]
         }
-      ]
+    ]
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js', '.css', '.scss']
