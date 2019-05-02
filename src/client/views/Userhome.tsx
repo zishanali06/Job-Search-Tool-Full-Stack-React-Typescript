@@ -1,8 +1,6 @@
 import * as React from 'react';
 import Eventdash from '../components/events/Eventdash';
 import Jobdash from '../components/jobs/Jobdash';
-import {useState, useEffect} from 'react';
-import { json } from '../utils/api';
 import Status from '../components/dash/Status';
 
 export interface UserhomeProps {
@@ -11,21 +9,6 @@ export interface UserhomeProps {
 
 const Userhome: React.SFC<UserhomeProps> = () => {
 
-    const [app, setApp] = useState(0);
-
-    const getapp = async () => {
-        try {
-            let data = await json('/api/jobs/applied/1');
-            console.log(data);
-            setApp(data.length);
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    useEffect(() => {
-        getapp();
-    }, [])
 
     return (<>
     <section className="row mb-4">

@@ -16,7 +16,10 @@ const Navbar: React.SFC<NavbarProps> = () => {
             <Link to="/" className="logofont"><img src="/images/js.jpg" alt="" style={imgstyle} className="ml-5 my-1"></img></Link>
         </section>
         <section>
-            <img src="/images/dash.png" alt="" style={imgstyle} className="mr-5"></img>
+            <img src="/images/dash.jpg" alt="" style={imgstyle} className="mr-2 my-1"></img>
+            <img src="/images/jobs.jpg" alt="" style={imgstyle} className="mr-2 my-1"></img>
+            <img src="/images/tasks.jpg" alt="" style={imgstyle} className="mr-2 my-1"></img>
+            <img src="/images/contacts.jpg" alt="" style={imgstyle} className="mr-5 my-1"></img>
         </section>
     </nav>
     </> );
