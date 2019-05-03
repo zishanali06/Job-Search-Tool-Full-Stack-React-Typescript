@@ -33,7 +33,7 @@ const Events: React.SFC<EventsProps> = () => {
         description: null,
         date: null,
         _created: null
-    }])
+    }]);
 
     const getTasks = async () => {
         try {
@@ -50,29 +50,29 @@ const Events: React.SFC<EventsProps> = () => {
 
 
     return (
-    <>
+        <>
             <table style={dstyle}>
-            <tbody>
-                <tr className="border" key={123}>
-                    <th className="border bg-dark text-light">Date</th>
-                    <th className="border bg-dark text-light">Type</th>
-                    <th className="border bg-dark text-light">Company</th>
-                    <th className="border bg-dark text-light">Description</th>
-                </tr>
-                {events.map((task, index) => {
-                    let newdate = moment(task.date).format('MMM Do, YYYY');
-                    return (
-                        <tr className='' key={index}>
-                            <td className='p-2'>{newdate}</td>
-                            <td>{task.type}</td>
-                            <td>{task.company}</td>
-                            <td>{task.description}</td>
-                        </tr>
-                    )
-                })}
-            </tbody>
+                <tbody>
+                    <tr className="border" key={123}>
+                        <th className="border bg-dark text-light">Date</th>
+                        <th className="border bg-dark text-light">Type</th>
+                        <th className="border bg-dark text-light">Company</th>
+                        <th className="border bg-dark text-light">Description</th>
+                    </tr>
+                    {events.map((task) => {
+                        let newdate = moment(task.date).format('MMM Do, YYYY');
+                        return (
+                            <tr className='' key={task.id}>
+                                <td className='p-2'>{newdate}</td>
+                                <td>{task.type}</td>
+                                <td>{task.company}</td>
+                                <td>{task.description}</td>
+                            </tr>
+                        )
+                    })}
+                </tbody>
             </table>
-    </>);
+        </>);
 }
 
 export default Events;

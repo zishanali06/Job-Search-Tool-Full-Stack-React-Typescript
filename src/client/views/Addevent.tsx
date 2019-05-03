@@ -16,8 +16,6 @@ const Addevent: React.SFC<AddeventProps> = (props) => {
     const [date, setDate] = useState(new Date());
 
     const ondChange = (date: Date) => {
-        console.log('erearsdf');
-        console.log(date);
         setDate(date);
     }
 
