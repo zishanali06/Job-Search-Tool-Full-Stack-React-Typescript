@@ -10,5 +10,9 @@ export default {
     },
     auth: {
         secret: process.env.SECRET
+    },
+    twilio: {
+        asid: process.env.ASID,
+        authtoken: process.env.AUTHTOKEN
     }
 }

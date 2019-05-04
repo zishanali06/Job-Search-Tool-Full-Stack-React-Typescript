@@ -2,8 +2,11 @@ import * as path from 'path';
 import * as express from 'express';
 import Router from './routes';
 import * as morgan from 'morgan';
+import * as twilio from 'twilio';
+import config from './config';
 
 const app = express();
+const client = twilio(config.twilio.asid, config.twilio.authtoken);
 
 app.use(express.json());
 app.use(morgan('dev'));
