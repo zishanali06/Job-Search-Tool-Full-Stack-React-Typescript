@@ -11,37 +11,37 @@ import * as moment from 'moment';
 const app = express();
 const client = twilio(config.twilio.asid, config.twilio.authtoken);
 
-cron.schedule("* * * * *", async function () {
-    try {
-        let data = await knex('jobapps').select('*');
-        let newdata = data.map((newdata: any) => {
-            return {
-                date: moment(newdata.date).format(),
-                userid: newdata.userid,
-                status: newdata.status,
-                id: newdata.id
-            };
-        });
-        let jdate = moment().add(1, 'days').format();
-        let todaydate = moment().format();
-        for (let i = 0; i < newdata.length; i++) {
-            let boom = moment(newdata[i].date).isBetween(todaydate, jdate);
-            if (boom === true) {
-                let [data] = await knex('jobapps').select('*').where('id', '=', newdata[i].id);
-                client.messages
-                    .create({
-                        body: (`You have an Interview today at ${data.company}, for ${data.jobtitle}!`),
-                        from: '+12056351609',
-                        to: '+14693698035'
-                    })
-                    .then(message => console.log('This is the message: ' + message.body));
-            }
-        };
-        console.log("running a task every minute");
-    } catch (error) {
-        console.log(error);
-    };
-});
+// cron.schedule("* * * * *", async function () {
+//     try {
+//         let data = await knex('jobapps').select('*');
+//         let newdata = data.map((newdata: any) => {
+//             return {
+//                 date: moment(newdata.date).format(),
+//                 userid: newdata.userid,
+//                 status: newdata.status,
+//                 id: newdata.id
+//             };
+//         });
+//         let jdate = moment().add(1, 'days').format();
+//         let todaydate = moment().format();
+//         for (let i = 0; i < newdata.length; i++) {
+//             let boom = moment(newdata[i].date).isBetween(todaydate, jdate);
+//             if (boom === true) {
+//                 let [data] = await knex('jobapps').select('*').where('id', '=', newdata[i].id);
+//                 client.messages
+//                     .create({
+//                         body: (`You have an Interview today at ${data.company}, for ${data.jobtitle}!`),
+//                         from: '+12056351609',
+//                         to: '+14693698035'
+//                     })
+//                     .then(message => console.log('This is the message: ' + message.body));
+//             }
+//         };
+//         console.log("running a task every minute");
+//     } catch (error) {
+//         console.log(error);
+//     };
+// });
 
 app.use(express.json());
 app.use(morgan('dev'));
