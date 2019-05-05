@@ -21,7 +21,6 @@ router.get('/single/:id', async (req, res, next) => {
     if (id) {
         try {
             let [data] = await knex('jobapps').select('*').where('id', '=', id);
-            console.log(data);
             res.json(data);
         } catch (error) {
             console.log(error);
