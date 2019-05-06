@@ -13,7 +13,6 @@ const Status: React.SFC<StatusProps> = () => {
     const getapp = async () => {
         try {
             let data = await json(`/api/jobs/applied/${User.userid}`);
-            console.log(data);
             setApp(data.length);
         } catch (error) {
             console.log(error);

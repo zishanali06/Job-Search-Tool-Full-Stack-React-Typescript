@@ -23,7 +23,8 @@ const Userdash: React.SFC<UserdashProps> = () => {
                 <Navbar />
                 <main className="container home bg-grey">
                     <Switch>
-                        <Route exact path="/" component={Userhome} ></Route>
+                        <Route exact path="/" component={Login} ></Route>
+                        <Route exact path="/dashboard" component={Userhome} ></Route>
                         <Route exact path="/add/event" component={Addevent} ></Route>
                         <Route exact path="/add/job" component={Addjob} ></Route>
                         <Route exact path="/job/:id" component={Singlejob} ></Route>

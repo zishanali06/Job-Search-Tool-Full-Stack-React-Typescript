@@ -2,6 +2,7 @@ import * as React from 'react';
 import { json, SetAccessToken } from '../utils/api';
 import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
+import $ from 'jquery';
 
 export interface LoginProps extends RouteComponentProps {
 
@@ -19,7 +20,11 @@ class Login extends React.Component<LoginProps, LoginState> {
             email: '',
             password: ''
         };
-    }
+    };
+
+    // componentDidMount() {
+    //     $('nav').hide();
+    // }
 
     handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
@@ -28,9 +33,9 @@ class Login extends React.Component<LoginProps, LoginState> {
             if(data) {
                 SetAccessToken(data.token, { userid: data.userid, role: data.role });
                 if(data.role === 'user') {
-                    this.props.history.goBack();
+                    this.props.history.push('/dashboard');
                 } else {
-                    this.props.history.push('/');
+                    this.props.history.push('/register');
                 }
             } else {
                 this.props.history.push('/register');

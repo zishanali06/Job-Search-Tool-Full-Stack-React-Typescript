@@ -14,7 +14,7 @@ const Userhome: React.SFC<UserhomeProps> = (props) => {
 
     useEffect(() => {
         if (!User || User.userid === null || User.role !== 'user') {
-            props.history.push('/login');
+            props.history.push('/');
         };
     }, []);
     

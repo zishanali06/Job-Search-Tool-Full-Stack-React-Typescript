@@ -52,7 +52,6 @@ const Jobcard: React.SFC<JobcardProps> = () => {
         abort = true;
         try {
             let jobs = await json(`/api/jobs/${User.userid}`);
-            console.log(jobs);
             if(abort === true){
                 setJobs(jobs);
             }
@@ -69,7 +68,7 @@ const Jobcard: React.SFC<JobcardProps> = () => {
     return (<>
         {transitions.map(({ item, key, props }) => {
             if(item.jobtitle === null){
-                return <div key={key}></div>
+                return <div key={9999}></div>
             }
             return (
                 <animated.div key={item.id} style={props}>

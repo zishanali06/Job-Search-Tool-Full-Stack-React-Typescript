@@ -28,8 +28,8 @@ class Register extends React.Component<RegisterProps, RegisterState> {
             let data = await json('/auth/register', 'POST', { email: this.state.email, password: this.state.password, name: this.state.name });
             if (data) {
                 SetAccessToken(data.token, { userid: data.userid, role: data.role });
-                if (data.role === 'admin') {
-                    this.props.history.push('/books');
+                if (data.role === 'user') {
+                    this.props.history.push('/dashboard');
                 } else {
                     this.props.history.push('/');
                 }

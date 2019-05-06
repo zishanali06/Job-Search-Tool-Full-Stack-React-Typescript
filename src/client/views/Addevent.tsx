@@ -30,8 +30,7 @@ const Addevent: React.SFC<AddeventProps> = (props) => {
         };
         try {
             let data = await json('/api/events/add', 'POST', event);
-            console.log(data);
-            props.history.push('/');
+            props.history.push('/dashboard');
         } catch (error) {
             console.log(error);
         }

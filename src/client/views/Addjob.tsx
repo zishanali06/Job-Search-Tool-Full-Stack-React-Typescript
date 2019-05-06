@@ -38,7 +38,7 @@ const Addjob: React.SFC<AddjobProps> = (props) => {
         };
         try {
             let data = await json('/api/jobs/add', 'POST', job);
-            props.history.push('/');
+            props.history.push('/dashboard');
         } catch (error) {
             console.log(error);
         }
