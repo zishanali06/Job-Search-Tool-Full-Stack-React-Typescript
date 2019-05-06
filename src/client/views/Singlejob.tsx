@@ -41,7 +41,7 @@ const Singlejob: React.SFC<SinglejobProps> = (props) => {
     return (
         <>
             <section>
-                <h1>{job.jobtitle}</h1>
+                <h1>Nice{job.jobtitle}</h1>
                 <p>{job.status}</p>
             <p>{job.appurl}</p>
             <p>{job.city}</p>
