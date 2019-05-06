@@ -44,7 +44,7 @@ const Addevent: React.SFC<AddeventProps> = (props) => {
             <section className="col-6">
                 <form>
                     <section className="form-group">
-                        <label>Company</label>
+                        <label>Company Name</label>
                         <input
                             type="text"
                             className="form-control"
