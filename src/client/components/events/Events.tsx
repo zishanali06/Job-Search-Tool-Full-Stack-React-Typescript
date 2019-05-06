@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { json } from '../../utils/api';
+import { json, User } from '../../utils/api';
 import moment from 'moment';
 
 export interface EventsProps {
@@ -35,10 +35,17 @@ const Events: React.SFC<EventsProps> = () => {
         _created: null
     }]);
 
+    //for cleanup
+    let abort = true;
+
     const getTasks = async () => {
+        abort = true;
         try {
-            let data = await json('/api/events');
-            setEvents(data);
+            let data = await json(`/api/events/${User.userid}`);
+            //check if mounted
+            if(abort === true) {
+                setEvents(data);
+            };
         } catch (error) {
             console.log(error);
         }
@@ -46,6 +53,8 @@ const Events: React.SFC<EventsProps> = () => {
 
     useEffect(() => {
         getTasks();
+        //return abort false so state doesnt update when unmounted
+        return () => abort = false;
     }, []);
 
 

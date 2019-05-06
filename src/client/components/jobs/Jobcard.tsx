@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { json } from '../../utils/api';
+import { json, User } from '../../utils/api';
 import moment from 'moment';
 import { useTransition, animated } from 'react-spring';
 import { Link } from 'react-router-dom';
@@ -46,11 +46,16 @@ const Jobcard: React.SFC<JobcardProps> = () => {
         width: '20em'
     }
 
+    let abort = true;
+
     const getJobs = async () => {
+        abort = true;
         try {
-            let jobs = await json('/api/jobs/1');
+            let jobs = await json(`/api/jobs/${User.userid}`);
             console.log(jobs);
-            setJobs(jobs);
+            if(abort === true){
+                setJobs(jobs);
+            }
         } catch (error) {
             console.log(error);
         }
@@ -58,13 +63,13 @@ const Jobcard: React.SFC<JobcardProps> = () => {
 
     useEffect(() => {
         getJobs();
+        return () => abort = false;
     }, [])
 
     return (<>
         {transitions.map(({ item, key, props }) => {
-            let newdate = moment(item.date).format('MMM Do, YYYY');
             if(item.jobtitle === null){
-                return <> </>
+                return <div key={key}></div>
             }
             return (
                 <animated.div key={item.id} style={props}>

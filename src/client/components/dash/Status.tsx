@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { json } from '../../utils/api';
+import { json, User } from '../../utils/api';
 
 export interface StatusProps {
 
@@ -12,7 +12,7 @@ const Status: React.SFC<StatusProps> = () => {
 
     const getapp = async () => {
         try {
-            let data = await json('/api/jobs/applied/1');
+            let data = await json(`/api/jobs/applied/${User.userid}`);
             console.log(data);
             setApp(data.length);
         } catch (error) {

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 import Calendar from 'react-calendar';
-import { json } from '../utils/api';
+import { json, User } from '../utils/api';
 import { RouteComponentProps } from 'react-router';
 
 export interface AddjobProps extends RouteComponentProps {
@@ -26,7 +26,7 @@ const Addjob: React.SFC<AddjobProps> = (props) => {
     const add = async (e: React.MouseEvent) => {
         e.preventDefault();
         let job = {
-            userid: 1,
+            userid: User.userid,
             company: company,
             companyurl: courl,
             date: date,

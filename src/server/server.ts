@@ -7,8 +7,12 @@ import config from './config';
 import * as cron from 'node-cron';
 import knex from './db';
 import * as moment from 'moment';
+import './middleware/localstrategy';
+import './middleware/bearerstrategy';
+import * as passport from 'passport';
 
 const app = express();
+app.use(passport.initialize());
 const client = twilio(config.twilio.asid, config.twilio.authtoken);
 
 // cron.schedule("* * * * *", async function () {

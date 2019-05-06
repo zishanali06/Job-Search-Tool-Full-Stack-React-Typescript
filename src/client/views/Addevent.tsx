@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
-import { json } from '../utils/api';
+import { json, User } from '../utils/api';
 import { RouteComponentProps } from 'react-router';
 
 export interface AddeventProps extends RouteComponentProps {
@@ -22,7 +22,7 @@ const Addevent: React.SFC<AddeventProps> = (props) => {
     const add = async (e: React.MouseEvent) => {
         e.preventDefault();
         let event = {
-            userid: 1,
+            userid: User.userid,
             type: type,
             company: company,
             date: date,

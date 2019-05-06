@@ -13,7 +13,7 @@ router.post('/', async (req, res, next) => {
         let token = await CreateToken({ userid });
         res.json({
             token,
-            role: 'admin',
+            role: 'user',
             userid
         });
     } catch (error) {
