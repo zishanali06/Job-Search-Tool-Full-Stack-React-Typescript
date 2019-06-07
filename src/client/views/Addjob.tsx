@@ -10,9 +10,9 @@ export interface AddjobProps extends RouteComponentProps {
 
 const Addjob: React.SFC<AddjobProps> = (props) => {
 
-    const [status, setStatus] = useState('Interested');
+    const [status, setStatus] = useState('Applied');
     const [company, setCompany] = useState('');
-    const [courl, setCourl] = useState('Phone Call');
+    const [courl, setCourl] = useState('');
     const [city, setCity] = useState('');
     const [date, setDate] = useState(new Date());
     const [appurl, setAppurl] = useState('');

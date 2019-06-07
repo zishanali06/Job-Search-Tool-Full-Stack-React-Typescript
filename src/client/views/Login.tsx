@@ -2,7 +2,6 @@ import * as React from 'react';
 import { json, SetAccessToken } from '../utils/api';
 import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
-import $ from 'jquery';
 
 export interface LoginProps extends RouteComponentProps {
 
