@@ -37,7 +37,7 @@
     "css-loader": "^1.0.1",
     "express": "^4.16.4",
     "isomorphic-fetch": "^2.2.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.16.5",
     "moment": "^2.24.0",
